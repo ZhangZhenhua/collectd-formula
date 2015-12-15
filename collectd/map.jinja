@@ -93,7 +93,10 @@
             'mysql': {
                 'databases': []
             },
-            'network': {},
+            'network': {
+                'host': salt['pillar.get']('logstash:ip'),
+                'port': salt['pillar.get']('logstash:collectd_port')
+            },
             'nginx': {
                 'url': 'http://localhost/check_status',
             },
