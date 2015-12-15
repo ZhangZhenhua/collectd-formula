@@ -55,8 +55,8 @@
             ],
             'apache': {
                 'instances' : [ {
-                        'name': 'name',
-                        'url': 'http://' + salt['grains.get']('host') + '/server-status?auto',
+                        'name': 'apache_monitor',
+                        'url': 'http://127.0.0.1/server-status?auto',
                         'verifypeer': 'false',
                         'verifyhost': 'false',
                         'server': 'apache'
@@ -95,7 +95,8 @@
             },
             'network': {
                 'host': salt['pillar.get']('logstash:ip'),
-                'port': salt['pillar.get']('logstash:collectd_port')
+                'port': salt['pillar.get']('logstash:collectd_port'),
+                'securitylevel': 'None'
             },
             'nginx': {
                 'url': 'http://localhost/check_status',
